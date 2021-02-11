@@ -1,5 +1,5 @@
 {
-  "pluginAlias": "ExampleHomebridgePlugin",
+  "pluginAlias": "szklarnia",
   "pluginType": "platform",
   "singular": true,
   "schema": {
@@ -9,7 +9,43 @@
         "title": "Name",
         "type": "string",
         "required": true,
-        "default": "Example Dynamic Platform"
+        "default": "Szklarnia"
+      },
+      "rPin": {
+        "title": "Light R-channel pin",
+        "type": "integer",
+        "required": true,
+        "default": 4
+      },
+      "gPin": {
+        "title": "Light G-channel pin",
+        "type": "integer",
+        "required": true,
+        "default": 17
+      },
+      "bPin": {
+        "title": "Light B-channel pin",
+        "type": "integer",
+        "required": true,
+        "default": 18
+      },
+      "fanMinimumSpeed": {
+        "title": "Fan minimum speed",
+        "type": "integer",
+        "required": true,
+        "default": 0
+      },
+      "fan1Pin": {
+        "title": "Fan 1 pin",
+        "type": "integer",
+        "required": true,
+        "default": 21
+      },
+      "fan2Pin": {
+        "title": "Fan 2 pin",
+        "type": "integer",
+        "required": true,
+        "default": 22
       }
     }
   }
