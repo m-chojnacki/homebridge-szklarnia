@@ -18,7 +18,7 @@ export class AM2301Sensor {
   async read(tries = 5): Promise<AM2301Reading> {
     let reading = await this.readSingle();
 
-    for (let i = 0; i < tries && reading.status !== AM2301Status.Ok; i++) {
+    for (let i = 0; i < tries && !this.isReadingCorrect(reading); i++) {
       reading = await this.readSingle();
     }
 
@@ -38,5 +38,11 @@ export class AM2301Sensor {
       parseFloat(split[1]),
       split[2] as AM2301Status,
     );
+  }
+
+  private isReadingCorrect(reading: AM2301Reading): boolean {
+    return reading.status === AM2301Status.Ok
+      && reading.temperature >= 10 && reading.temperature <= 40
+      && reading.humidity >= 10 && reading.humidity <= 90;
   }
 }
